@@ -1,0 +1,740 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param VGG=1.8
+.param LAMBDA=0.09u
+.param width_N={20*LAMBDA}
+.param width_P={2*width_N}
+.global gnd vdd
+.param VDD=1.8V
+
+
+VSRC f gnd 1.8V
+Va1   a1   gnd 1.8V
+Va1b  a1b  gnd 0V
+Va2   a2   gnd 1.8V
+Va2b  a2b  gnd 0V
+Va3   a3   gnd 1.8V
+Va3b  a3b  gnd 0V
+Va4   a4   gnd 1.8V
+Va4b  a4b  gnd 0V
+Va5   a5   gnd PULSE(0 1.8 0n 1p 1p 20n 40n)
+Va5b  a5b  gnd PULSE(1.8 0 0n 1p 1p 20n 40n)
+Vb1   b1   gnd PULSE(0 1.8 0n 1p 1p 10n 20n)
+Vb1b  b1b  gnd PULSE(1.8 0 0n 1p 1p 10n 20n)
+Vb2   b2   gnd 0V
+Vb2b  b2b  gnd 1.8V
+Vb3   b3   gnd 0V
+Vb3b  b3b  gnd 1.8V
+Vb4   b4   gnd 0V
+Vb4b  b4b  gnd 1.8V
+Vb5   b5   gnd 0V
+Vb5b  b5b  gnd 1.8V
+
+
+C1 p1o gnd 10f
+C0 g1 gnd 10f
+C2 c6 gnd 10f
+C3 s2o gnd 10f
+C4 s3o gnd 10f
+C5 s4o gnd 10f
+C6 s5o gnd 10f
+
+
+
+
+
+
+
+Mp1_1 kp11 a1b f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp1_2 kp12 a1 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp1_3 p1 b1 kp11 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp1_4 p1 b1b kp12 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mp1_5 p1 a1b kp13 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp1_6 p1 a1 kp14 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp1_7 kp13 b1b gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp1_8 kp14 b1 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+
+
+
+
+
+
+
+Mp2_1 kp21 a2b f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp2_2 kp22 a2 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp2_3 p2 b2 kp21 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp2_4 p2 b2b kp22 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mp2_5 p2 a2b kp23 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp2_6 p2 a2 kp24 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp2_7 kp23 b2b gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp2_8 kp24 b2 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+
+
+
+
+
+
+Mp3_1 kp31 a3b f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp3_2 kp32 a3 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp3_3 p3 b3 kp31 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp3_4 p3 b3b kp32 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mp3_5 p3 a3b kp33 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp3_6 p3 a3 kp34 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp3_7 kp33 b3b gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp3_8 kp34 b3 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+
+
+
+
+
+Mp4_1 kp41 a4b f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp4_2 kp42 a4 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp4_3 p4 b4 kp41 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp4_4 p4 b4b kp42 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mp4_5 p4 a4b kp43 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp4_6 p4 a4 kp44 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp4_7 kp43 b4b gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp4_8 kp44 b4 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+
+
+
+
+
+Mp5_1 kp51 a5b f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp5_2 kp52 a5 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp5_3 p5 b5 kp51 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mp5_4 p5 b5b kp52 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mp5_5 p5 a5b kp53 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp5_6 p5 a5 kp54 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp5_7 kp53 b5b gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mp5_8 kp54 b5 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+
+
+
+
+
+
+
+
+
+Mg1_1 g1b a1 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg1_2 g1b b1 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg1_3 g1b a1 kg1 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mg1_4 kg1 b1 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+Mg1_5 g1 g1b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg1_6 g1 g1b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+
+Mg2_1 g2b a2 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg2_2 g2b b2 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg2_3 g2b a2 kg2 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mg2_4 kg2 b2 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+Mg2_5 g2 g2b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg2_6 g2 g2b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+
+Mg3_1 g3b a3 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg3_2 g3b b3 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg3_3 g3b a3 kg3 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mg3_4 kg3 b3 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+Mg3_5 g3 g3b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg3_6 g3 g3b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+
+
+
+Mg4_1 g4b a4 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg4_2 g4b b4 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg4_3 g4b a4 kg4 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mg4_4 kg4 b4 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+Mg4_5 g4 g4b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg4_6 g4 g4b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+
+
+Mg5_1 g5b a5 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg5_2 g5b b5 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg5_3 g5b a5 kg5 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mg5_4 kg5 b5 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+Mg5_5 g5 g5b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Mg5_6 g5 g5b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+
+
+//inverted propogates p2b,p3b,p4b,......
+
+M_inv_2p p2b p2 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_2n p2b p2 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+M_inv_3p p3b p3 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_3n p3b p3 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+M_inv_4p p4b p4 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_4n p4b p4 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+M_inv_5p p5b p5 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_5n p5b p5 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+//now calculate carries
+//sum1 is p1 & carry2 is g1
+//carries c3,c4,c5,c6
+
+Mc3_1 kc31 g2 f f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mc3_2 c3b p2 kc31 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mc3_3 c3b g1 kc31 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+
+Mc3_4 c3b g2 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Mc3_5 c3b g1 kc32 gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mc3_6 kc32 p2 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+
+M_inv_3p_c c3 c3b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_3n_c c3 c3b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+Mc4_1 kc41 g3 f f CMOSP W={3*width_P} L={2*LAMBDA}
++ AS={5*3*width_P*LAMBDA} PS={10*LAMBDA+2*3*width_P} AD={5*3*width_P*LAMBDA} PD={10*LAMBDA+2*3*width_P}
+
+Mc4_2 c4b p3 kc41 f CMOSP W={1.5*width_P} L={2*LAMBDA}
++ AS={5*1.5*width_P*LAMBDA} PS={10*LAMBDA+2*1.5*width_P} AD={5*1.5*width_P*LAMBDA} PD={10*LAMBDA+2*1.5*width_P}
+
+Mc4_3 kc42 g2 kc41 f CMOSP W={3*width_P} L={2*LAMBDA}
++ AS={5*3*width_P*LAMBDA} PS={10*LAMBDA+2*3*width_P} AD={5*3*width_P*LAMBDA} PD={10*LAMBDA+2*3*width_P}
+
+Mc4_4 c4b p2 kc42 f CMOSP W={3*width_P} L={2*LAMBDA}
++ AS={5*3*width_P*LAMBDA} PS={10*LAMBDA+2*3*width_P} AD={5*3*width_P*LAMBDA} PD={10*LAMBDA+2*3*width_P}
+
+Mc4_5 c4b g1 kc42 f CMOSP W={3*width_P} L={2*LAMBDA}
++ AS={5*3*width_P*LAMBDA} PS={10*LAMBDA+2*3*width_P} AD={5*3*width_P*LAMBDA} PD={10*LAMBDA+2*3*width_P}
+
+
+Mc4_6 c4b g3 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Mc4_7 c4b p3 kc43 gnd CMOSN W={3*width_N} L={2*LAMBDA}
++ AS={5*3*width_N*LAMBDA} PS={10*LAMBDA+2*3*width_N} AD={5*3*width_N*LAMBDA} PD={10*LAMBDA+2*3*width_N}
+
+Mc4_8 kc43 g2 gnd gnd CMOSN W={1.5*width_N} L={2*LAMBDA}
++ AS={5*1.5*width_N*LAMBDA} PS={10*LAMBDA+2*1.5*width_N} AD={5*1.5*width_N*LAMBDA} PD={10*LAMBDA+2*1.5*width_N}
+
+Mc4_9 kc43 g1 kc44 gnd CMOSN W={3*width_N} L={2*LAMBDA}
++ AS={5*3*width_N*LAMBDA} PS={10*LAMBDA+2*3*width_N} AD={5*3*width_N*LAMBDA} PD={10*LAMBDA+2*3*width_N}
+
+Mc4_10 kc44 p2 gnd gnd CMOSN W={3*width_N} L={2*LAMBDA}
++ AS={5*3*width_N*LAMBDA} PS={10*LAMBDA+2*3*width_N} AD={5*3*width_N*LAMBDA} PD={10*LAMBDA+2*3*width_N}
+
+M_inv_4p_c c4 c4b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_4n_c c4 c4b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+Mc5_1 kc51 g4 f f CMOSP W={4*width_P} L={2*LAMBDA}
++ AS={5*4*width_P*LAMBDA} PS={10*LAMBDA+2*4*width_P} AD={5*4*width_P*LAMBDA} PD={10*LAMBDA+2*4*width_P}
+
+Mc5_2 c5b p4 kc51 f CMOSP W={1.33*width_P} L={2*LAMBDA}
++ AS={5*1.33*width_P*LAMBDA} PS={10*LAMBDA+2*1.33*width_P} AD={5*1.33*width_P*LAMBDA} PD={10*LAMBDA+2*1.33*width_P}
+
+Mc5_3 kc52 g3 kc51 f CMOSP W={4*width_P} L={2*LAMBDA}
++ AS={5*4*width_P*LAMBDA} PS={10*LAMBDA+2*4*width_P} AD={5*4*width_P*LAMBDA} PD={10*LAMBDA+2*4*width_P}
+
+Mc5_4 c5b p3 kc52 f CMOSP W={2*width_P} L={2*LAMBDA}
++ AS={5*2*width_P*LAMBDA} PS={10*LAMBDA+2*2*width_P} AD={5*2*width_P*LAMBDA} PD={10*LAMBDA+2*2*width_P}
+
+Mc5_5 kc53 g2 kc52 f CMOSP W={4*width_P} L={2*LAMBDA}
++ AS={5*4*width_P*LAMBDA} PS={10*LAMBDA+2*4*width_P} AD={5*4*width_P*LAMBDA} PD={10*LAMBDA+2*4*width_P}
+
+Mc5_6 c5b p2 kc53 f CMOSP W={4*width_P} L={2*LAMBDA}
++ AS={5*4*width_P*LAMBDA} PS={10*LAMBDA+2*4*width_P} AD={5*4*width_P*LAMBDA} PD={10*LAMBDA+2*4*width_P}
+
+Mc5_7 c5b g1 kc53 f CMOSP W={4*width_P} L={2*LAMBDA}
++ AS={5*4*width_P*LAMBDA} PS={10*LAMBDA+2*4*width_P} AD={5*4*width_P*LAMBDA} PD={10*LAMBDA+2*4*width_P}
+
+
+
+Mc5_8 c5b g4 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Mc5_9 c5b p4 kc54 gnd CMOSN W={4*width_N} L={2*LAMBDA}
++ AS={5*4*width_N*LAMBDA} PS={10*LAMBDA+2*4*width_N} AD={5*4*width_N*LAMBDA} PD={10*LAMBDA+2*4*width_N}
+
+Mc5_10 kc54 g3 gnd gnd CMOSN W={1.33*width_N} L={2*LAMBDA}
++ AS={5*1.33*width_N*LAMBDA} PS={10*LAMBDA+2*1.33*width_N} AD={5*1.33*width_N*LAMBDA} PD={10*LAMBDA+2*1.33*width_N}
+
+Mc5_11 kc54 p3 kc55 gnd CMOSN W={4*width_N} L={2*LAMBDA}
++ AS={5*4*width_N*LAMBDA} PS={10*LAMBDA+2*4*width_N} AD={5*4*width_N*LAMBDA} PD={10*LAMBDA+2*4*width_N}
+
+Mc5_12 kc55 g2 gnd gnd CMOSN W={2*width_N} L={2*LAMBDA}
++ AS={5*2*width_N*LAMBDA} PS={10*LAMBDA+2*2*width_N} AD={5*2*width_N*LAMBDA} PD={10*LAMBDA+2*2*width_N}
+
+Mc5_13 kc55 p2 kc56 gnd CMOSN W={4*width_N} L={2*LAMBDA}
++ AS={5*4*width_N*LAMBDA} PS={10*LAMBDA+2*4*width_N} AD={5*4*width_N*LAMBDA} PD={10*LAMBDA+2*4*width_N}
+
+Mc5_14 kc56 g1 gnd gnd CMOSN W={4*width_N} L={2*LAMBDA}
++ AS={5*4*width_N*LAMBDA} PS={10*LAMBDA+2*4*width_N} AD={5*4*width_N*LAMBDA} PD={10*LAMBDA+2*4*width_N}
+
+
+M_inv_5p_c c5 c5b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_5n_c c5 c5b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+
+Mc6_1 kc61 g5 f f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+Mc6_2 c6b p5 kc61 f CMOSP W={1.25*width_P} L={2*LAMBDA}
++ AS={5*1.25*width_P*LAMBDA} PS={10*LAMBDA+2*1.25*width_P} AD={5*1.25*width_P*LAMBDA} PD={10*LAMBDA+2*1.25*width_P}
+
+Mc6_3 kc62 g4 kc61 f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+Mc6_4 c6b p4 kc62 f CMOSP W={1.67*width_P} L={2*LAMBDA}
++ AS={5*1.67*width_P*LAMBDA} PS={10*LAMBDA+2*1.67*width_P} AD={5*1.67*width_P*LAMBDA} PD={10*LAMBDA+2*1.67*width_P}
+
+Mc6_5 kc63 g3 kc62 f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+Mc6_6 c6b p3 kc63 f CMOSP W={2.5*width_P} L={2*LAMBDA}
++ AS={5*2.5*width_P*LAMBDA} PS={10*LAMBDA+2*2.5*width_P} AD={5*2.5*width_P*LAMBDA} PD={10*LAMBDA+2*2.5*width_P}
+
+Mc6_7 kc64 g2 kc63 f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+Mc6_8 c6b p2 kc64 f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+Mc6_9 c6b g1 kc64 f CMOSP W={5*width_P} L={2*LAMBDA}
++ AS={5*5*width_P*LAMBDA} PS={10*LAMBDA+2*5*width_P} AD={5*5*width_P*LAMBDA} PD={10*LAMBDA+2*5*width_P}
+
+
+
+Mc6_10 c6b g5 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Mc6_11 c6b p5 kc65 gnd CMOSN W={5*width_N} L={2*LAMBDA}
++ AS={5*5*width_N*LAMBDA} PS={10*LAMBDA+2*5*width_N} AD={5*5*width_N*LAMBDA} PD={10*LAMBDA+2*5*width_N}
+
+Mc6_12 kc65 g4 gnd gnd CMOSN W={1.25*width_N} L={2*LAMBDA}
++ AS={5*1.25*width_N*LAMBDA} PS={10*LAMBDA+2*1.25*width_N} AD={5*1.25*width_N*LAMBDA} PD={10*LAMBDA+2*1.25*width_N}
+
+Mc6_13 kc65 p4 kc66 gnd CMOSN W={5*width_N} L={2*LAMBDA}
++ AS={5*5*width_N*LAMBDA} PS={10*LAMBDA+2*5*width_N} AD={5*5*width_N*LAMBDA} PD={10*LAMBDA+2*5*width_N}
+
+Mc6_14 kc66 g3 gnd gnd CMOSN W={1.67*width_N} L={2*LAMBDA}
++ AS={5*1.67*width_N*LAMBDA} PS={10*LAMBDA+2*1.67*width_N} AD={5*1.67*width_N*LAMBDA} PD={10*LAMBDA+2*1.67*width_N}
+
+Mc6_15 kc66 p3 kc67 gnd CMOSN W={5*width_N} L={2*LAMBDA}
++ AS={5*5*width_N*LAMBDA} PS={10*LAMBDA+2*5*width_N} AD={5*5*width_N*LAMBDA} PD={10*LAMBDA+2*5*width_N}
+
+Mc6_16 kc67 g2 gnd gnd CMOSN W={2.5*width_N} L={2*LAMBDA}
++ AS={5*2.5*width_N*LAMBDA} PS={10*LAMBDA+2*2.5*width_N} AD={5*2.5*width_N*LAMBDA} PD={10*LAMBDA+2*2.5*width_N}
+
+Mc6_17 kc67 p2 kc68 gnd CMOSN W={5*width_N} L={2*LAMBDA}
++ AS={5*5*width_N*LAMBDA} PS={10*LAMBDA+2*5*width_N} AD={5*5*width_N*LAMBDA} PD={10*LAMBDA+2*5*width_N}
+
+Mc6_18 kc68 g1 gnd gnd CMOSN W={5*width_N} L={2*LAMBDA}
++ AS={5*5*width_N*LAMBDA} PS={10*LAMBDA+2*5*width_N} AD={5*5*width_N*LAMBDA} PD={10*LAMBDA+2*5*width_N}
+
+
+M_inv_6p_c c6 c6b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_6n_c c6 c6b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+//now calculate sum
+//sum1 is p1
+
+Ms2_1 ks21 p2b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms2_2 ks22 p2 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms2_3 s2 g1 ks21 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms2_4 s2 g1b ks22 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+
+Ms2_5 s2 p2b ks23 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms2_6 s2 p2 ks24 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms2_7 ks23 g1b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms2_8 ks24 g1 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+Ms3_1 ks31 p3b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms3_2 ks32 p3 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms3_3 s3 c3 ks31 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms3_4 s3 c3b ks32 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+
+Ms3_5 s3 p3b ks33 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms3_6 s3 p3 ks34 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms3_7 ks33 c3b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms3_8 ks34 c3 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+Ms4_1 ks41 p4b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms4_2 ks42 p4 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms4_3 s4 c4 ks41 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms4_4 s4 c4b ks42 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+
+Ms4_5 s4 p4b ks43 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms4_6 s4 p4 ks44 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms4_7 ks43 c4b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms4_8 ks44 c4 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+
+
+Ms5_1 ks51 p5b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms5_2 ks52 p5 f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms5_3 s5 c5 ks51 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+Ms5_4 s5 c5b ks52 f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+
+Ms5_5 s5 p5b ks53 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms5_6 s5 p5 ks54 gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms5_7 ks53 c5b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+Ms5_8 ks54 c5 gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+
+
+
+
+.param VIM={0.5*VDD}
+.meas tran t_a_rise  WHEN v(b1)=VIM  RISE=1
+.meas tran t_c_rise  WHEN v(c6)=VIM  RISE=1
+.meas tran t_ac_rise PARAM='t_c_rise - t_a_rise'
+
+.meas tran t_a_fall  WHEN v(b1)=VIM  FALL=1
+.meas tran t_c_fall  WHEN v(c6)=VIM  FALL=1
+.meas tran t_ac_fall PARAM='t_c_fall - t_a_fall'  
+
+.meas tran t_ac_worst PARAM='max(abs(t_ac_rise), abs(t_ac_fall))'
+
+.ic v(c6) = 0V
+.ic v(g1) = 1.8V
+.ic v(p1) = 0V
+.tran 10p 40ns
+
+.control
+run
+set color0 = black
+set color1 = white
+set hcopypscolor = 1
+set xbrushwidth = 4
+
+plot v(c6) v(b1)-2 title "Arun_Venkat_2024102067_ADDER"
+set curplottitle = "Arun_Venkat_2024102067_ADDER"
+hardcopy Arun_Venkat_2024102067_Q3_Transient.eps v(p1) v(p2) v(p3) v(p4) v(p5)
+.endc

@@ -1,0 +1,95 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param VGG=1.8
+.param LAMBDA=0.09u
+.param width_N={20*LAMBDA}
+.param width_P={2*width_N}
+.global gnd vdd
+.param VDD=1.8V
+
+VS   clk  0 PULSE(0 {VDD} 0 100p 100p 15n 30n)    
+VA   a    0 PULSE(0 {VDD} 0 100p 100p 30n 60n)
+VSRC f gnd 1.8V
+C1 e gnd 10f
+
+
+M_inv_p clkb clk f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_n clkb clk gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M1 a clkb b gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M2 a clk b f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M3 c clk d gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M4 c clkb d f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+
+
+M_inv_1p c b f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_1n c b gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M_inv_11p b c f f CMOSP W={0.5*width_P} L={2*LAMBDA}
++ AS={5*0.5*width_P*LAMBDA} PS={10*LAMBDA+2*0.5*width_P} AD={5*0.5*width_P*LAMBDA} PD={10*LAMBDA+2*0.5*width_P}
+
+M_inv_11n b c gnd gnd CMOSN W={0.5*width_N} L={2*LAMBDA}
++ AS={2.5*width_N*LAMBDA} PS={10*LAMBDA+width_N} AD={2.5*width_N*LAMBDA} PD={10*LAMBDA+width_N}
+
+
+
+
+M_inv_2p e d f f CMOSP W={width_P} L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M_inv_2n e d gnd gnd CMOSN W={width_N} L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M_inv_22p d e f f CMOSP W={0.5*width_P} L={2*LAMBDA}
++ AS={2.5*width_P*LAMBDA} PS={10*LAMBDA+width_P} AD={2.5*width_P*LAMBDA} PD={10*LAMBDA+width_P}
+
+M_inv_22n d e gnd gnd CMOSN W={0.5*width_N} L={2*LAMBDA}
++ AS={2.5*width_N*LAMBDA} PS={10*LAMBDA+width_N} AD={2.5*width_N*LAMBDA} PD={10*LAMBDA+width_N}
+
+
+.ic v(clkb) = 1.8V
+.ic v(e) = 1.8V
+.ic v(d) = 0V
+.ic v(c) = 0V
+.ic v(b) = 1.8V
+.ic v(a) = 1.8V
+.tran 10p 150ns
+
+
+.param VIM={0.5*VDD}
+
+.meas tran t_clk_rise WHEN v(clk)=VIM RISE=4
+.meas tran t_q_rise   WHEN v(e)=VIM  RISE=1
+.meas tran t_cq_rise  PARAM='t_q_rise - t_clk_rise'
+
+.meas tran t_clk_fall WHEN v(clk)=VIM RISE=3
+.meas tran t_q_fall   WHEN v(e)=VIM  FALL=1
+.meas tran t_cq_fall  PARAM='t_q_fall - t_clk_fall'
+
+.meas tran t_cq_worst PARAM='max(abs(t_cq_rise), abs(t_cq_fall))'
+
+
+.control
+run
+set color0 = black
+set color1 = white
+set hcopypscolor = 1
+set xbrushwidth = 4
+plot  v(a)+2  v(e) v(clk)+4  title "Arun_Venkat_2024102067_FLIP_FLOP"
+set curplottitle = "Arun_Venkat_2024102067_FLIP_FLOP"
+hardcopy Arun_Venkat_2024102067_Q3_Transient.eps v(a) v(b) v(c)
+.endc
