@@ -1,0 +1,116 @@
+magic
+tech scmos
+timestamp 1763481985
+<< nwell >>
+rect -20 165 6 251
+rect -20 61 29 165
+rect 53 75 77 129
+<< ntransistor >>
+rect 64 41 66 61
+rect -9 8 -7 28
+rect 14 -1 16 39
+rect 22 -1 24 39
+<< ptransistor >>
+rect -9 164 -7 244
+rect -9 67 -7 147
+rect 14 67 16 147
+rect 64 82 66 121
+<< ndiffusion >>
+rect 63 41 64 61
+rect 66 41 67 61
+rect -10 8 -9 28
+rect -7 8 -6 28
+rect 13 -1 14 39
+rect 16 -1 17 39
+rect 21 -1 22 39
+rect 24 -1 25 39
+<< pdiffusion >>
+rect -10 164 -9 244
+rect -7 164 -6 244
+rect -10 67 -9 147
+rect -7 67 -6 147
+rect 13 67 14 147
+rect 16 67 17 147
+rect 63 82 64 121
+rect 66 82 67 121
+<< ndcontact >>
+rect 59 41 63 61
+rect 67 41 71 61
+rect -14 8 -10 28
+rect -6 8 -2 28
+rect 9 -1 13 39
+rect 17 -1 21 39
+rect 25 -1 29 39
+<< pdcontact >>
+rect -14 164 -10 244
+rect -6 164 -2 244
+rect -14 67 -10 147
+rect -6 67 -2 147
+rect 9 67 13 147
+rect 17 67 21 147
+rect 59 82 63 121
+rect 67 82 71 121
+<< polysilicon >>
+rect -9 244 -7 251
+rect -9 161 -7 164
+rect -9 147 -7 154
+rect 14 147 16 154
+rect 64 121 66 124
+rect -9 64 -7 67
+rect 14 64 16 67
+rect 64 61 66 82
+rect 14 39 16 46
+rect 22 39 24 46
+rect -9 28 -7 35
+rect -9 5 -7 8
+rect 64 38 66 41
+rect 14 -4 16 -1
+rect 22 -4 24 -1
+<< polycontact >>
+rect -7 247 -3 251
+rect -13 150 -9 154
+rect 16 150 20 154
+rect 60 67 64 71
+rect 10 42 14 46
+rect 24 42 28 46
+rect -7 31 -3 35
+<< metal1 >>
+rect -14 244 -10 259
+rect -6 158 -2 164
+rect -6 154 13 158
+rect -6 147 -2 154
+rect 9 147 13 154
+rect 59 121 63 133
+rect 67 71 71 82
+rect -14 56 -10 67
+rect 17 56 21 67
+rect 32 67 60 71
+rect 67 67 79 71
+rect 32 56 36 67
+rect 67 61 71 67
+rect -14 52 36 56
+rect -14 28 -10 52
+rect -6 3 -2 8
+rect -6 -1 9 3
+rect 32 38 36 52
+rect 29 34 36 38
+rect 59 27 63 41
+<< labels >>
+rlabel polycontact -6 248 -4 250 1 g2
+rlabel metal1 -13 254 -11 256 5 f
+rlabel polycontact -12 151 -10 153 1 g1
+rlabel polycontact 17 151 19 153 1 p2
+rlabel polycontact 11 43 13 45 1 g1
+rlabel polycontact 25 43 27 45 1 p2
+rlabel polycontact -6 32 -4 34 1 g2
+rlabel metal1 60 130 62 132 1 f
+rlabel nwell 71 125 73 127 1 f
+rlabel metal1 74 68 76 70 7 c3
+rlabel metal1 19 53 21 55 1 c3b
+rlabel metal1 60 30 62 32 1 gnd
+rlabel metal1 -2 0 0 2 1 gnd
+rlabel nwell -1 245 2 248 1 f
+rlabel space -8 -16 -5 -14 1 gnd
+rlabel metal1 3 155 5 157 1 kc31
+rlabel ndcontact 18 18 20 20 1 kc32
+<< end >>
