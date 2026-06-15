@@ -1,0 +1,123 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param VGG=1.8
+.param LAMBDA=0.09u
+.param width_N={20*LAMBDA}
+.param width_P={2*width_N}
+.global gnd vdd
+.param VDD=1.8
+.option scale=90n
+
+
+VS   clk  0 PULSE(0 {VDD} 0 100p 100p 40n 80n)       
+VA   a1    0 PULSE(0 {VDD} 0 100p 100p 10n 20n)
+VSRC f gnd 1.8V
+C100 r1 gnd 10f
+  
+
+M1000 k1 clk a1 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1001 a1 clkb k1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1002 u1 k1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1003 k1 u1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1004 u1 k1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1005 l1 clkb u1 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1006 l1 r1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1007 l1 r1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1008 k1 u1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1009 u1 clk l1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1010 r1 l1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1011 r1 l1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1012 clkb clk f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1013 clkb clk gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+
+
+
+C0 l1 gnd 0.34923f
+C1 l1 f 0.2421f
+C2 f clk 0.02666f
+C3 a1 clkb 0.05624f
+C4 l1 r1 0.11756f
+C5 a1 clk 0.12702f
+C6 u1 k1 0.11029f
+C7 l1 clkb 0.05829f
+C8 gnd u1 0.4132f
+C9 u1 f 0.68486f
+C10 l1 clk 0.05624f
+C11 gnd k1 0.15953f
+C12 k1 f 0.24211f
+C13 a1 k1 0.61857f
+C14 u1 clkb 0.00355f
+C15 l1 u1 0.61857f
+C16 a1 f 0.00918f
+C17 r1 gnd 0.40723f
+C18 r1 f 0.67568f
+C19 k1 clkb 0.02822f
+C20 u1 clk 0.02822f
+C21 k1 clk 0.0017f
+C22 f clkb 0.02666f
+C23 gnd 0 0.20771f 
+C24 r1 0 0.23775f 
+C25 f 0 6.90974f 
+C26 k1 0 0.6529f 
+C27 u1 0 1.30204f 
+C28 a1 0 0.28975f 
+C29 l1 0 1.04251f 
+C30 clk 0 0.25817f 
+C31 clkb 0 0.27689f 
+
+
+
+.ic v(clkb) = 1.8V
+.ic v(r1) = 1.8V
+.ic v(l1) = 0V
+.ic v(u1) = 0V
+.ic v(k1) = 1.8V
+.ic v(a1) = 1.8V
+.tran 10p 150ns
+
+
+.param VIM={0.5*VDD}
+.meas tran t_a_rise  WHEN v(a1)=VIM  FALL=3
+.meas tran t_c_rise  WHEN v(u1)=VIM  RISE=1
+.meas tran t_ac_rise PARAM='t_c_rise - t_a_rise'
+
+
+.meas tran t_a_fall  WHEN v(a1)=VIM  RISE=4
+.meas tran t_c_fall  WHEN v(u1)=VIM  FALL=1
+.meas tran t_ac_fall PARAM='t_c_fall - t_a_fall'  
+
+.meas tran t_ac_worst PARAM='max(abs(t_ac_rise), abs(t_ac_fall))'
+
+.meas tran t_clk_rise  WHEN v(clk)=VIM  RISE=1
+.meas tran t_clkb_fall WHEN v(clkb)=VIM FALL=1
+.meas tran th_pos  PARAM='t_clkb_fall - t_clk_rise'
+
+.meas tran t_clk_fall  WHEN v(clk)=VIM  FALL=1
+.meas tran t_clkb_rise WHEN v(clkb)=VIM RISE=1
+.meas tran th_neg  PARAM='t_clkb_rise - t_clk_fall'
+
+
+.control
+run
+set color0 = black
+set color1 = white
+set hcopypscolor = 1
+set xbrushwidth = 4
+plot  v(a1)+2  v(u1) v(clk)+4  title "Arun_Venkat_2024102067_FLIP_FLOP"
+set curplottitle = "Arun_Venkat_2024102067_FLIP_FLOP"
+hardcopy Arun_Venkat_2024102067_Q3_Transient.eps
+.endc

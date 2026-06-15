@@ -1,0 +1,1891 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param VGG=1.8
+.param LAMBDA=0.09u
+.param width_N={20*LAMBDA}
+.param width_P={2*width_N}
+.global gnd vdd
+.param VDD=1.8V
+.option scale=90n
+
+
+
+VSRC f gnd 1.8V
+Va1   a1   gnd PULSE(0 1.8 0n 100p 100p 20n 40n)
+Va1b   a1b   gnd PULSE(1.8 0 0n 100p 100p 20n 40n)
+Va2   a2   gnd PULSE(0 1.8 0n 100p 100p 40n 80n)
+Va2b   a2b   gnd PULSE(1.8 0 0n 100p 100p 40n 80n)
+Va3   a3  gnd PULSE(0 1.8 0n 100p 100p 80n 160n)
+Va3b  a3b  gnd PULSE(1.8 0 0n 100p 100p 80n 160n)
+Va4   a4   gnd PULSE(0 1.8 0n 100p 100p 160n 320n)
+Va4b  a4b  gnd PULSE(1.8 0 0n 100p 100p 160n 320n)
+Va5   a5  gnd PULSE(0 1.8 0n 100p 100p 320n 640n)
+Va5b  a5b  gnd PULSE(1.8 0 0n 100p 100p 320n 640n)
+
+Vb1   b1   gnd PULSE(0 1.8 0n 1p 1p 10n 20n)
+Vb1b  b1b  gnd PULSE(1.8 0 0n 1p 1p 10n 20n)
+Vb2   b2   gnd 0V
+Vb2b  b2b  gnd 1.8V
+Vb3   b3   gnd 0V
+Vb3b  b3b  gnd 1.8V
+Vb4   b4   gnd 0V
+Vb4b  b4b  gnd 1.8V
+Vb5   b5   gnd 0V
+Vb5b  b5b  gnd 1.8V
+
+M1000 kp34 a3 p3 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1001 kc55 p3 kc54 gnd CMOSN w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1002 kg2 a2 g2b gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1003 lb5 b5 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1004 ka1 ua1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1005 s2o ls2 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1006 ub4 kb4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1007 p5b p5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1008 kc6 clk c6i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1009 gnd b5 kp54 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1010 c6i c6m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1011 kp11 a1b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1012 up1 kp1 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1013 ks2 us2 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1014 lb1 b1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1015 lb2 clkb ub2 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1016 f b3 g3b f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1017 kg4 a4 g4b gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1018 a2b a2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1019 gnd g1 kc56 gnd CMOSN w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1020 kc42 g1 c4b f CMOSP w=120 l=2
++  ad=0.36n pd=0.126m as=0.6n ps=0.25m
+M1021 kc31 g2 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1022 c6 c6b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1023 b4b b4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1024 p5 b5 kp51 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1025 a2i clkb ka2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1026 ls4 s4o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1027 kc68 p2 kc67 gnd CMOSN w=100 l=2
++  ad=0.3n pd=0.106m as=0.3n ps=0.106m
+M1028 ks3 clk s3i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1029 f p5 ks52 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1030 ks53 c5b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1031 lp1 p1o f f CMOSP w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1032 ls2 s2o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1033 p1i p1m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1034 b1b b1 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1035 ka2 clk a2i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1036 la3 a3 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1037 f a5 kp52 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1038 lb4 b4 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1039 ka3 clk a3i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1040 kb2 clk b2i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1041 c6m c6 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1042 a1i clkb ka1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1043 c5 c5b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1044 ub3 kb3 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1045 s5o ls5 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1046 b3i clkb kb3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1047 kc41 p3 c4b f CMOSP w=60 l=2
++  ad=0.3n pd=0.13m as=0.3n ps=0.13m
+M1048 kc41 g3 f f CMOSP w=120 l=2
++  ad=0.6n pd=0.25m as=0.6n ps=0.25m
+M1049 kp43 b4b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1050 f b4 g4b f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1051 p3b p3 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1052 la3 clkb ua3 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1053 s3 p3b ks33 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1054 b1 lb1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1055 kc65 p5 c6b gnd CMOSN w=100 l=2
++  ad=0.3n pd=0.106m as=0.5n ps=0.21m
+M1056 kc6 uc6 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1057 ks51 p5b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1058 la4 a4 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1059 ka1 clk a1i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1060 a1 la1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1061 kc51 g4 f f CMOSP w=160 l=2
++  ad=0.48n pd=0.166m as=0.8n ps=0.33m
+M1062 g1b g1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1063 c4 c4b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1064 ka5 clk a5i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1065 la4 clkb ua4 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1066 op3 s3o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1067 s5i clkb ks5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1068 kp42 b4b p4 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1069 us5 ks5 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1070 us4 ks4 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1071 s3m s3 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1072 ub3 clk lb3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1073 g4 g4b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1074 ub5 kb5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1075 us3 ks3 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1076 p4b p4 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1077 kc53 g2 kc52 f CMOSP w=160 l=2
++  ad=0.48n pd=0.166m as=0.48n ps=0.166m
+M1078 b2i clkb kb2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1079 c6i c6m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1080 b1b b1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1081 s4o ls4 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1082 us4 clk ls4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1083 b5 lb5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1084 kp41 a4b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1085 kc64 g2 kc63 f CMOSP w=200 l=2
++  ad=0.6n pd=0.206m as=0.6n ps=0.206m
+M1086 ka4 clk a4i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1087 s3o ls3 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1088 ks41 p4b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1089 op2 s2o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1090 lp1 clkb up1 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1091 c6 c6b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1092 uc6 kc6 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1093 kp1 up1 gnd gnd CMOSN w=5 l=2
++  ad=25p pd=20u as=25p ps=20u
+M1094 g1 g1b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1095 gnd c3 ks34 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1096 p2 a2b kp23 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1097 c5 c5b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1098 c4 c4b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1099 kp22 b2b p2 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1100 us2 ks2 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1101 g3 g3b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1102 s3m s3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1103 ks42 c4b s4 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1104 kb5 ub5 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1105 c6o lc6 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1106 lb3 b3 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1107 p4b p4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1108 kp32 b3b p3 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1109 ub3 kb3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1110 kc61 g5 f f CMOSP w=200 l=2
++  ad=0.6n pd=0.206m as=1n ps=0.41m
+M1111 op4 s4o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1112 ua4 ka4 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1113 a4i clkb ka4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1114 lc6 c6o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1115 kp53 b5b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1116 op3 s3o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1117 g1b g1 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1118 kg1 a1 g1b gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1119 op6 c6o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1120 b4 lb4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1121 g1 g1b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1122 lc6 clkb uc6 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1123 gnd b2 kp24 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1124 kb3 ub3 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1125 ls5 s5o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1126 ks5 us5 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1127 ls3 s3o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1128 b3b b3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1129 f p2 ks22 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1130 ua4 clk la4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1131 kb1 ub1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1132 g4 g4b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1133 g3 g3b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1134 kg5 a5 g5b gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1135 lb2 b2 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1136 ks5 us5 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1137 ks4 us4 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1138 gnd b1 kg1 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1139 a2 la2 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1140 lb1 b1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1141 a5 la5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1142 kc54 p4 c5b gnd CMOSN w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1143 kb3 ub3 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1144 s5i s5m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1145 kb4 ub4 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1146 ls3 clkb us3 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1147 ub1 kb1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1148 gnd b4 kg4 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1149 ua4 ka4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1150 op2 s2o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1151 ls4 s4o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1152 kp54 a5 p5 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1153 kp1 up1 f f CMOSP w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1154 la2 a2 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1155 us3 ks3 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1156 f a1 kp12 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1157 b3 lb3 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1158 a5b a5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1159 ks54 p5 s5 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1160 g3b a3 f f CMOSP w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1161 p1m p1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1162 kc44 g1 kc43 gnd CMOSN w=60 l=2
++  ad=0.18n pd=66u as=0.18n ps=66u
+M1163 kp51 a5b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1164 op4 s4o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1165 s4m s4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1166 ub2 kb2 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1167 kc67 p3 kc66 gnd CMOSN w=100 l=2
++  ad=0.3n pd=0.106m as=0.3n ps=0.106m
+M1168 s3o ls3 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1169 ks52 c5b s5 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1170 la5 clkb ua5 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1171 us5 clk ls5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1172 kc31 g1 c3b f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1173 p4 a4b kp43 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1174 a2b a2 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1175 la1 a1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1176 c6i clkb kc6 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1177 ub1 clk lb1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1178 f b5 g5b f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1179 kc32 g1 gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1180 kb1 clk b1i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1181 op6 c6o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1182 kb5 clk b5i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1183 b2 lb2 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1184 p1 a1b kp13 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1185 ka4 ua4 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1186 ub2 clk lb2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1187 b3b b3 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1188 kb1 ub1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1189 ua5 ka5 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1190 s2o ls2 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1191 kc61 p5 c6b f CMOSP w=50 l=2
++  ad=0.25n pd=0.11m as=0.25n ps=0.11m
+M1192 s4 p4b ks43 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1193 lb1 clkb ub1 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1194 ks33 c3b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1195 a1b a1 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1196 b3 lb3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1197 c3b p2 kc32 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1198 p1i clkb kp1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1199 s4i s4m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1200 s3 c3 ks31 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1201 a5 la5 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1202 p4 b4 kp41 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1203 lb4 clkb ub4 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1204 gnd g2 kc55 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1205 ua5 clk la5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1206 ua3 ka3 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1207 a3i clkb ka3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1208 b2b b2 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1209 gnd b4 kp44 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1210 kp14 a1 p1 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1211 ks22 g1b s2 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1212 gnd b3 kg3 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1213 kp1 clk p1i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1214 s5m s5 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1215 s4m s4 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1216 a1 la1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1217 f p3 ks32 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1218 c3b p2 kc31 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1219 f a4 kp42 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1220 ua2 clk la2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1221 p1m p1 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1222 p3 a3b kp33 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1223 ua3 clk la3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1224 f b2 g2b f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1225 kc63 g3 kc62 f CMOSP w=200 l=2
++  ad=0.6n pd=0.206m as=0.6n ps=0.206m
+M1226 a4 la4 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1227 kb4 clk b4i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1228 a5i clkb ka5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1229 a5b a5 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1230 gnd b1 kp14 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1231 up1 kp1 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1232 gnd c4 ks44 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1233 p2b p2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1234 ks34 p3 s3 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1235 kp23 b2b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1236 ks3 us3 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1237 op5 s5o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1238 p2 b2 kp21 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1239 lc6 c6o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1240 c6b g1 kc64 f CMOSP w=200 l=2
++  ad=1n pd=0.41m as=0.6n ps=0.206m
+M1241 s5o ls5 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1242 ua1 clk la1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1243 s4i s4m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1244 b2b b2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1245 ks4 us4 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1246 ua2 ka2 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1247 kb2 ub2 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1248 kp12 b1b p1 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1249 ls3 s3o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1250 ua5 ka5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1251 p3 b3 kp31 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1252 a4b a4 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1253 kc41 g2 kc42 f CMOSP w=120 l=2
++  ad=0.6n pd=0.25m as=0.6n ps=0.25m
+M1254 g5 g5b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1255 ub4 kb4 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1256 gnd b3 kp34 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1257 kc56 p2 kc55 gnd CMOSN w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1258 la3 a3 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1259 lb2 b2 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1260 a4 la4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1261 lb3 b3 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1262 kc65 g4 gnd gnd CMOSN w=25 l=2
++  ad=0.125n pd=60u as=0.125n ps=60u
+M1263 f a3 kp32 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1264 ka5 ua5 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1265 ua3 ka3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1266 kp24 a2 p2 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1267 ua1 ka1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1268 kc53 p2 c5b f CMOSP w=160 l=2
++  ad=0.8n pd=0.33m as=0.8n ps=0.33m
+M1269 b1i clkb kb1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1270 s2 p2b ks23 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1271 op1 p1o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1272 kp13 b1b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1273 gnd g3 c4b gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1274 us3 clk ls3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1275 uc6 kc6 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1276 la5 a5 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1277 us4 ks4 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1278 lb5 b5 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1279 la2 a2 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1280 ka4 ua4 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1281 us2 ks2 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1282 ua2 ka2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1283 ka5 ua5 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1284 kc66 g3 gnd gnd CMOSN w=33 l=2
++  ad=0.165n pd=76u as=0.165n ps=76u
+M1285 ka3 ua3 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1286 ls5 s5o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1287 c4b p2 kc42 f CMOSP w=120 l=2
++  ad=0.6n pd=0.25m as=0.36n ps=0.126m
+M1288 a4b a4 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1289 a3b a3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1290 kb3 clk b3i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1291 kp52 b5b p5 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1292 gnd g1 kc68 gnd CMOSN w=100 l=2
++  ad=0.5n pd=0.21m as=0.3n ps=0.106m
+M1293 c6o lc6 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1294 s5 p5b ks53 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1295 s4o ls4 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1296 uc6 clk lc6 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1297 kc51 p4 c5b f CMOSP w=53 l=2
++  ad=0.265n pd=0.116m as=0.265n ps=0.116m
+M1298 s3i clkb ks3 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1299 p2b p2 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1300 ks24 p2 s2 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1301 s2 g1 ks21 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1302 p1o lp1 f f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1303 s5i s5m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1304 a2 la2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1305 lb5 clkb ub5 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1306 lb3 clkb ub3 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1307 ks5 clk s5i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1308 la1 a1 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1309 la4 a4 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1310 ka3 ua3 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1311 c6b p3 kc63 f CMOSP w=100 l=2
++  ad=0.5n pd=0.21m as=0.5n ps=0.21m
+M1312 b1 lb1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1313 gnd g2 kc43 gnd CMOSN w=30 l=2
++  ad=0.15n pd=70u as=0.15n ps=70u
+M1314 ua1 ka1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1315 s2i s2m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1316 g2b a2 f f CMOSP w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1317 kc43 p3 c4b gnd CMOSN w=60 l=2
++  ad=0.18n pd=66u as=0.3n ps=0.13m
+M1318 ls2 s2o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1319 g5 g5b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1320 lp1 p1o gnd gnd CMOSN w=5 l=2
++  ad=25p pd=20u as=25p ps=20u
+M1321 ls5 clkb us5 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1322 ls4 clkb us4 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1323 gnd g1 ks24 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1324 ub5 kb5 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1325 kc66 p4 kc65 gnd CMOSN w=100 l=2
++  ad=0.3n pd=0.106m as=0.3n ps=0.106m
+M1326 c6b p2 kc64 f CMOSP w=200 l=2
++  ad=1n pd=0.41m as=1n ps=0.41m
+M1327 s5 c5 ks51 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1328 gnd b2 kg2 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1329 kc52 g3 kc51 f CMOSP w=160 l=2
++  ad=0.48n pd=0.166m as=0.48n ps=0.166m
+M1330 lb4 b4 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1331 a3 la3 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1332 g5b a5 f f CMOSP w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1333 gnd c5 ks54 gnd CMOSN w=40 l=2
++  ad=0.28n pd=94u as=0.12n ps=46u
+M1334 ka2 ua2 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1335 b5 lb5 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1336 gnd p2 kc44 gnd CMOSN w=60 l=2
++  ad=0.3n pd=0.13m as=0.18n ps=66u
+M1337 ub2 kb2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1338 ub5 clk lb5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1339 kb4 ub4 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1340 s2m s2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1341 c5b g1 kc53 f CMOSP w=160 l=2
++  ad=0.8n pd=0.33m as=0.48n ps=0.166m
+M1342 p1 b1 kp11 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1343 g4b a4 f f CMOSP w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1344 b4i clkb kb4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1345 g1b a1 f f CMOSP w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1346 la2 clkb ua2 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1347 ks4 clk s4i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1348 ks43 c4b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1349 b2 lb2 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1350 la5 a5 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1351 ks3 us3 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1352 s4 c4 ks41 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1353 p1i p1m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1354 ks31 p3b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1355 ub4 clk lb4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1356 a3b a3 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1357 ka1 ua1 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1358 gnd g2 kc67 gnd CMOSN w=50 l=2
++  ad=0.25n pd=0.11m as=0.25n ps=0.11m
+M1359 b5i clkb kb5 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1360 kc6 uc6 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1361 b5b b5 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1362 a1b a1 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1363 f a2 kp22 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1364 f b1 g1b f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1365 kp44 a4 p4 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1366 kg3 a3 g3b gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1367 ks23 g1b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1368 la1 clkb ua1 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1369 f p4 ks42 f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.24n ps=86u
+M1370 s3i s3m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1371 ks32 c3b s3 f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.24n ps=86u
+M1372 kb2 ub2 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1373 g2 g2b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1374 c3 c3b f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1375 s2i clkb ks2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1376 kp33 b3b gnd gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.2n ps=90u
+M1377 s4i clkb ks4 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1378 kc62 g4 kc61 f CMOSP w=200 l=2
++  ad=0.6n pd=0.206m as=0.6n ps=0.206m
+M1379 s5m s5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1380 s2i s2m f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1381 b4 lb4 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1382 kc52 p3 c5b f CMOSP w=80 l=2
++  ad=0.4n pd=0.17m as=0.4n ps=0.17m
+M1383 kc62 p4 c6b f CMOSP w=67 l=2
++  ad=0.335n pd=0.144m as=0.402n ps=0.146m
+M1384 ks44 p4 s4 gnd CMOSN w=40 l=2
++  ad=0.12n pd=46u as=0.24n ps=52u
+M1385 us5 ks5 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1386 ks2 clk s2i f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1387 up1 clk lp1 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1388 us2 clk ls2 gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1389 ks2 us2 gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1390 p5b p5 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1391 p5 a5b kp53 gnd CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.12n ps=46u
+M1392 kp21 a2b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1393 a3 la3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1394 ks21 p2b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1395 c6m c6 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1396 ka2 ua2 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1397 b5b b5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1398 gnd g4 c5b gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1399 op1 p1o f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1400 kb5 ub5 f f CMOSP w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1401 ls2 clkb us2 f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1402 kc54 g3 gnd gnd CMOSN w=27 l=2
++  ad=0.135n pd=64u as=0.135n ps=64u
+M1403 p1o lp1 gnd gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1404 ub1 kb1 f f CMOSP w=40 l=2
++  ad=0.2n pd=90u as=0.2n ps=90u
+M1405 gnd b5 kg5 gnd CMOSN w=40 l=2
++  ad=0.2n pd=90u as=0.12n ps=46u
+M1406 kp31 a3b f f CMOSP w=80 l=2
++  ad=0.24n pd=86u as=0.4n ps=0.17m
+M1407 s2m s2 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1408 op5 s5o gnd gnd CMOSN w=10 l=2
++  ad=50p pd=30u as=50p ps=30u
+M1409 c6b g5 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1410 p3b p3 gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1411 s3i s3m gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1412 b4b b4 f f CMOSP w=39 l=2
++  ad=0.195n pd=88u as=0.195n ps=88u
+M1413 g2 g2b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1414 c3 c3b gnd gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+M1415 gnd g2 c3b gnd CMOSN w=20 l=2
++  ad=100p pd=50u as=100p ps=50u
+C0 c3 p3 0.08656f
+C1 s2o gnd 0.7322f
+C2 g2b f 0.85587f
+C3 a2i clkb 0.05624f
+C4 la2 clk 0.05624f
+C5 c3b p2 0.15225f
+C6 kc66 gnd 0.34021f
+C7 g3 g2 0.22222f
+C8 lb4 clkb 0.05829f
+C9 c6b kc64 5.47042f
+C10 ks44 p4 0.01375f
+C11 kc53 f 0.08863f
+C12 kb4 clk 0.0017f
+C13 ua4 gnd 0.4132f
+C14 up1 f 1.3353f
+C15 kp1 gnd 0.11581f
+C16 s4 s4m 0.06056f
+C17 a1 gnd 0.44794f
+C18 kc42 p2 0.05668f
+C19 lb4 b4 0.12647f
+C20 la3 ua3 0.61857f
+C21 ls5 gnd 0.39665f
+C22 p3 f 0.2248f
+C23 ka4 clkb 0.02822f
+C24 kc54 p3 0.00242f
+C25 la5 a5 0.12647f
+C26 ka2 ua2 0.12193f
+C27 b3 gnd 0.44939f
+C28 g2b kg2 0.4454f
+C29 us2 clkb 0.00355f
+C30 la4 a4 0.12647f
+C31 ls2 gnd 0.39665f
+C32 ub1 clk 0.02822f
+C33 p2b p2 0.06056f
+C34 kc41 p3 0.05692f
+C35 lb1 f 0.2421f
+C36 kp53 gnd 0.43596f
+C37 ks51 f 0.82476f
+C38 g1 g2 0.2287f
+C39 c5b c5 0.20755f
+C40 p5b p5 0.06056f
+C41 s2o op2 0.06056f
+C42 kp31 f 0.82476f
+C43 s2m f 0.43308f
+C44 p1 gnd 0.05199f
+C45 ls5 us5 0.61857f
+C46 kc66 kc67 1.16497f
+C47 kc63 f 0.05104f
+C48 g4 c5b 0.05692f
+C49 ls3 s3o 0.11756f
+C50 la5 ua5 0.61857f
+C51 la3 gnd 0.34923f
+C52 kp41 p4 0.82476f
+C53 ua3 f 0.68486f
+C54 a1i clk 0.12702f
+C55 ua1 clkb 0.00355f
+C56 ka1 f 0.24211f
+C57 g1b g1 0.26746f
+C58 p4 kc66 0
+C59 kg5 gnd 0.41238f
+C60 s3 c3 0.00194f
+C61 s5 p5 0.04196f
+C62 ub5 clk 0.02822f
+C63 lb5 f 0.2421f
+C64 a1b kp13 0.01375f
+C65 kc43 g2 0.05741f
+C66 g4b g4 0.05991f
+C67 c3 gnd 0.20756f
+C68 a1 b1 0.25758f
+C69 ks31 s3 0.82476f
+C70 ks43 gnd 0.43596f
+C71 op4 f 0.21547f
+C72 a5i clkb 0.05624f
+C73 la5 clk 0.05624f
+C74 b5b p5 0.00194f
+C75 s3i clk 0.12702f
+C76 a3 p3 0.04212f
+C77 ks3 clkb 0.02822f
+C78 s2 g1b 0.00194f
+C79 s3 f 0.02958f
+C80 a3 kp34 0.01375f
+C81 kc54 gnd 0.36083f
+C82 s5 s5m 0.06056f
+C83 p1 b1 0.00194f
+C84 a2b f 0.48966f
+C85 c6m gnd 0.23441f
+C86 lc6 c6o 0.11756f
+C87 uc6 clk 0.02822f
+C88 kc31 p2 0.05668f
+C89 kc6 f 0.24435f
+C90 c4b g3 0.05692f
+C91 b4b f 0.48578f
+C92 ks4 gnd 0.16736f
+C93 c6b p3 0.04919f
+C94 s2 ks22 0.82476f
+C95 kg2 gnd 0.41238f
+C96 ub2 clk 0.02822f
+C97 s4 c4b 0.00194f
+C98 lb2 f 0.2421f
+C99 us5 f 1.3353f
+C100 ks53 gnd 0.43596f
+C101 ub4 gnd 0.4132f
+C102 b5b a5b 0.08656f
+C103 kp42 f 0.82476f
+C104 ka2 clk 0.0017f
+C105 la2 clkb 0.05829f
+C106 c3b p3 0.14699f
+C107 p1 kp12 0.82476f
+C108 ks24 gnd 0.2985f
+C109 op2 f 0.21547f
+C110 kc43 kc44 0.61857f
+C111 kc65 gnd 0.40207f
+C112 kc52 f 0.08784f
+C113 kb4 clkb 0.02822f
+C114 lb5 b5 0.12647f
+C115 c4b g1 0.03093f
+C116 c6b kc63 1.03095f
+C117 kc61 kc62 2.21654f
+C118 lp1 f 0.1419f
+C119 p1i gnd 0.20619f
+C120 b1 f 0.88112f
+C121 kp24 p2 0.23565f
+C122 a1b gnd 0.20683f
+C123 g3b kg3 0.4454f
+C124 ks5 gnd 0.16736f
+C125 p4 f 0.18494f
+C126 ka3 ua3 0.12193f
+C127 ka2 a2i 0.61857f
+C128 kc54 p4 0.08113f
+C129 a3 gnd 0.44794f
+C130 ub1 clkb 0.00355f
+C131 b1i clk 0.12702f
+C132 kb1 f 0.24211f
+C133 kp22 p2 0.82476f
+C134 ks2 gnd 0.16736f
+C135 c5b p5 0.14699f
+C136 s3o op3 0.06056f
+C137 b5 gnd 0.44939f
+C138 lb3 gnd 0.34923f
+C139 kc51 g3 0.00194f
+C140 ub3 f 0.68486f
+C141 kc43 c4b 1.04126f
+C142 kp12 f 0.82476f
+C143 ks5 us5 0.12587f
+C144 kc62 f 0.04037f
+C145 c6b gnd 0.23441f
+C146 ls3 us3 0.61857f
+C147 ka5 ua5 0.12193f
+C148 a3i f 0.00918f
+C149 ka3 gnd 0.16076f
+C150 g1b p2 0.14699f
+C151 a1i clkb 0.05624f
+C152 la1 clk 0.05624f
+C153 op1 p1o 0.06056f
+C154 ub5 clkb 0.00355f
+C155 p4 kc65 0
+C156 b5i clk 0.12702f
+C157 kc64 g2 0
+C158 s3i ks3 0.61857f
+C159 s3 c3b 0.00194f
+C160 kb5 f 0.24211f
+C161 s5 p5b 0.04196f
+C162 g5b gnd 0.05572f
+C163 us3 clk 0.02822f
+C164 a1b b1 0.14699f
+C165 ls2 s2o 0.11756f
+C166 c3b gnd 0.26327f
+C167 ka5 clk 0.0017f
+C168 la5 clkb 0.05829f
+C169 c4 gnd 0.20756f
+C170 ks32 f 0.82476f
+C171 a3b p3 0.04196f
+C172 s3i clkb 0.05624f
+C173 s2 g1 0.00194f
+C174 f op6 0.21547f
+C175 c6o gnd 0.7322f
+C176 us4 clk 0.02822f
+C177 kp44 gnd 0.2985f
+C178 a2 kp24 0.01375f
+C179 p1 a1 0.04196f
+C180 kc54 kc55 1.03095f
+C181 kc43 g1 0.11457f
+C182 b2b f 0.48578f
+C183 p2b gnd 0.20683f
+C184 lc6 clk 0.05624f
+C185 uc6 clkb 0.00355f
+C186 c6i f 0.42053f
+C187 c6 gnd 0.23457f
+C188 c6b p4 0.05178f
+C189 s4i gnd 0.20619f
+C190 ls4 f 0.24499f
+C191 a4b kp43 0.01375f
+C192 b2i clk 0.12702f
+C193 s2m s2i 0.06056f
+C194 a4 b4 0.25758f
+C195 kb2 f 0.24211f
+C196 ub2 clkb 0.00355f
+C197 ua2 gnd 0.4132f
+C198 c6m c6i 0.06056f
+C199 c5 gnd 0.20756f
+C200 lb3 ub3 0.61857f
+C201 kp41 f 0.82476f
+C202 ks23 gnd 0.43596f
+C203 s2o f 1.34998f
+C204 ka2 clkb 0.02822f
+C205 g4 gnd 0.24977f
+C206 c4b p2 0.04196f
+C207 c6b kc62 0.55259f
+C208 c4 p4 0.08656f
+C209 ua4 f 0.68486f
+C210 la4 gnd 0.34923f
+C211 up1 clk 0.02822f
+C212 kp1 f 0.14125f
+C213 p1m gnd 0.23441f
+C214 kp23 p2 0.23565f
+C215 g2b g2 0.05991f
+C216 la1 ua1 0.61857f
+C217 a1 f 0.885f
+C218 ks42 s4 0.82476f
+C219 b1b gnd 0.23505f
+C220 s5i gnd 0.20619f
+C221 ls5 f 0.24499f
+C222 ka3 a3i 0.61857f
+C223 kc53 g2 0.00194f
+C224 a3b gnd 0.20683f
+C225 kp44 p4 0.23565f
+C226 b3 f 0.88112f
+C227 b1i clkb 0.05624f
+C228 lb1 clk 0.05624f
+C229 s2i gnd 0.20619f
+C230 kp21 p2 0.82476f
+C231 ls2 f 0.24499f
+C232 g4b b4 0.01067f
+C233 c5b p5b 0.08656f
+C234 a5 gnd 0.44794f
+C235 b3i f 0.00918f
+C236 kb3 gnd 0.16076f
+C237 p1 f 0.02958f
+C238 kc65 kc66 1.17528f
+C239 ks3 us3 0.12587f
+C240 g1 c5b 0.00194f
+C241 kc61 f 2.11464f
+C242 ka5 a5i 0.61857f
+C243 ua3 clk 0.02822f
+C244 kc51 c5b 0.83507f
+C245 la3 f 0.2421f
+C246 g3b gnd 0.05572f
+C247 la1 clkb 0.05829f
+C248 ka1 clk 0.0017f
+C249 p1i kp1 0.61857f
+C250 kc63 g2 0
+C251 b5i clkb 0.05624f
+C252 lb5 clk 0.05624f
+C253 s5 c5b 0.00194f
+C254 ua5 gnd 0.4132f
+C255 p2 g1 0.41832f
+C256 ls3 gnd 0.39665f
+C257 a1b a1 0.06056f
+C258 b1b b1 0.20755f
+C259 c3 f 0.48578f
+C260 us3 clkb 0.00355f
+C261 ka5 clkb 0.02822f
+C262 p4b gnd 0.20683f
+C263 ks31 f 0.82476f
+C264 kp24 gnd 0.2985f
+C265 b3b p3 0.0021f
+C266 a3 b3 0.25758f
+C267 c6o op6 0.06056f
+C268 s2 p2 0.04196f
+C269 a3b kp33 0.01375f
+C270 kc64 g1 0.00137f
+C271 ks52 s5 0.82476f
+C272 kc62 g4 0
+C273 us4 clkb 0.00355f
+C274 kp43 gnd 0.43596f
+C275 p1 a1b 0.04196f
+C276 kc41 f 1.31231f
+C277 lc6 clkb 0.05829f
+C278 c6m f 0.43308f
+C279 kc6 clk 0.0017f
+C280 lb3 b3 0.12647f
+C281 g2 gnd 0.29165f
+C282 ks4 f 0.24435f
+C283 a5 kp54 0.01375f
+C284 s4m gnd 0.23441f
+C285 b2i clkb 0.05624f
+C286 lb2 clk 0.05624f
+C287 ks21 s2 0.82476f
+C288 a4b b4 0.14699f
+C289 kb3 ub3 0.12193f
+C290 la3 a3 0.12647f
+C291 p5 gnd 0.05247f
+C292 us5 clk 0.02822f
+C293 la2 a2 0.12647f
+C294 lb4 gnd 0.34923f
+C295 ub4 f 0.68486f
+C296 kp11 p1 0.82476f
+C297 g1b gnd 0.29078f
+C298 g5 gnd 0.20692f
+C299 c6b kc61 0.67012f
+C300 c4b p3 0.07217f
+C301 ka4 gnd 0.16076f
+C302 a4i f 0.00918f
+C303 p4b p4 0.06056f
+C304 p1i f 0.42053f
+C305 lp1 clk 0.05624f
+C306 op1 gnd 0.1031f
+C307 up1 clkb 0.00355f
+C308 ka1 ua1 0.12193f
+C309 b2 p2 0.00194f
+C310 a1b f 0.48966f
+C311 ks41 s4 0.82476f
+C312 us2 gnd 0.63729f
+C313 kc67 g2 0
+C314 s5m gnd 0.23441f
+C315 ks5 f 0.24435f
+C316 kp43 p4 0.23565f
+C317 kc52 g2 0.00194f
+C318 b3b gnd 0.23505f
+C319 a3 f 0.885f
+C320 kb1 clk 0.0017f
+C321 g4b a4 0.0114f
+C322 lb1 clkb 0.05829f
+C323 ks2 f 0.24435f
+C324 b5 f 0.88112f
+C325 a5b gnd 0.20683f
+C326 kc44 gnd 0.61857f
+C327 ub3 clk 0.02822f
+C328 g5b kg5 0.4454f
+C329 lb3 f 0.2421f
+C330 kp11 f 0.82476f
+C331 ua1 gnd 0.4132f
+C332 p4 p5 0.08656f
+C333 c6b f 0.31071f
+C334 c3b c3 0.20755f
+C335 p2 c5b 0
+C336 op3 gnd 0.1031f
+C337 b1 g1b 0.01067f
+C338 ua3 clkb 0.00355f
+C339 a3i clk 0.12702f
+C340 kc53 g1 0.00194f
+C341 ka3 f 0.24211f
+C342 ka1 clkb 0.02822f
+C343 la4 ua4 0.61857f
+C344 g4b kg4 0.4454f
+C345 kb5 clk 0.0017f
+C346 kp54 p5 0.23565f
+C347 kc63 g3 0
+C348 s3m s3i 0.06056f
+C349 g5b f 0.85587f
+C350 lb5 clkb 0.05829f
+C351 p3 g1 0.05665f
+C352 kc51 p3 0.02356f
+C353 ks3 gnd 0.16736f
+C354 b1b a1 0.14699f
+C355 c3b f 0.11262f
+C356 c4b gnd 0.26327f
+C357 c4 f 0.48578f
+C358 lb1 ub1 0.61857f
+C359 kp23 gnd 0.43596f
+C360 kc42 f 0.03954f
+C361 p3b p3 0.06056f
+C362 c6o f 1.34998f
+C363 a3b b3 0.14699f
+C364 c6b kc65 1.03095f
+C365 ks51 s5 0.82476f
+C366 a2 b2 0.25758f
+C367 kc61 g4 0
+C368 kc41 kc42 1.29215f
+C369 b4 gnd 0.44939f
+C370 kc64 p2 0
+C371 a2b kp23 0.01375f
+C372 p1m p1 0.06056f
+C373 p1 b1b 0.00194f
+C374 kc43 p3 0.05668f
+C375 kg1 g1b 0.4454f
+C376 p2b f 0.48966f
+C377 lc6 uc6 0.61857f
+C378 c6i clk 0.12702f
+C379 kc6 clkb 0.02822f
+C380 g3 gnd 0.26356f
+C381 c6 f 0.43306f
+C382 ls4 clk 0.05624f
+C383 kc55 g2 0.05741f
+C384 s4i f 0.42053f
+C385 s4 gnd 0.05199f
+C386 kb2 clk 0.0017f
+C387 lb2 clkb 0.05829f
+C388 a4b a4 0.06056f
+C389 s2m s2 0.06056f
+C390 b4b b4 0.20755f
+C391 ua2 f 0.68486f
+C392 la2 gnd 0.34923f
+C393 kb3 b3i 0.61857f
+C394 us5 clkb 0.00355f
+C395 g3b b3 0.01067f
+C396 c6 c6m 0.06056f
+C397 p5b gnd 0.20683f
+C398 c5 f 0.48578f
+C399 g2b b2 0.01067f
+C400 b4i f 0.00918f
+C401 kb4 gnd 0.16076f
+C402 s4i ks4 0.61857f
+C403 kc32 gnd 0.41238f
+C404 s5o op5 0.06056f
+C405 g4 f 0.4666f
+C406 g1 gnd 0.27786f
+C407 g5b b5 0.01067f
+C408 c4b p4 0.14699f
+C409 ua4 clk 0.02822f
+C410 la4 f 0.2421f
+C411 lp1 clkb 0.05829f
+C412 kp1 clk 0.0017f
+C413 p1m f 0.43308f
+C414 ka1 a1i 0.61857f
+C415 a2 p2 0.04196f
+C416 ub1 gnd 0.4132f
+C417 b1b f 0.48578f
+C418 s3 p3b 0.04196f
+C419 ls5 clk 0.05624f
+C420 p5 ks54 0.01375f
+C421 s5 gnd 0.05199f
+C422 s5i f 0.42053f
+C423 kc52 g3 0.00194f
+C424 lb5 ub5 0.61857f
+C425 p3b gnd 0.20683f
+C426 b4 p4 0.00194f
+C427 a3b f 0.48966f
+C428 ls2 clk 0.05624f
+C429 s2 gnd 0.05199f
+C430 s2i f 0.42053f
+C431 kb1 clkb 0.02822f
+C432 b5b gnd 0.23505f
+C433 a5 f 0.885f
+C434 b3i clk 0.12702f
+C435 s4 p4 0.04196f
+C436 kc53 c5b 3.88668f
+C437 kc43 gnd 0.30929f
+C438 kb3 f 0.24211f
+C439 ub3 clkb 0.00355f
+C440 kc31 f 0.8761f
+C441 g4 kc65 0
+C442 kp52 f 0.82476f
+C443 p3 c5b 0.05813f
+C444 ub5 gnd 0.4132f
+C445 kc53 p2 0.03299f
+C446 la3 clk 0.05624f
+C447 a3i clkb 0.05624f
+C448 a1 g1b 0.0114f
+C449 g3b f 0.85587f
+C450 s3o gnd 0.7322f
+C451 kc51 kc52 1.80416f
+C452 ka4 ua4 0.12193f
+C453 p1m p1i 0.06056f
+C454 c6b c6 0.06056f
+C455 p3 p2 0.19956f
+C456 la5 gnd 0.34923f
+C457 ua5 f 0.68486f
+C458 kp53 p5 0.23565f
+C459 kb5 clkb 0.02822f
+C460 kc62 g3 0
+C461 p4b ks43 0.01375f
+C462 kc51 p4 0.03396f
+C463 s3i gnd 0.20619f
+C464 s4o op4 0.06056f
+C465 ls3 f 0.24499f
+C466 b1b a1b 0.08656f
+C467 kc61 p5 0
+C468 s5i ks5 0.61857f
+C469 p4b f 0.48966f
+C470 s4o gnd 0.7322f
+C471 ls2 us2 0.61857f
+C472 b2 gnd 0.44939f
+C473 kb1 ub1 0.12193f
+C474 kp32 p3 0.82476f
+C475 a3b a3 0.06056f
+C476 uc6 gnd 0.63729f
+C477 b3b b3 0.20755f
+C478 clk f 0.42661f
+C479 a2b b2 0.14699f
+C480 a4 gnd 0.44794f
+C481 kc61 g5 0
+C482 s2i ks2 0.61857f
+C483 kp22 f 0.82476f
+C484 s4 ks44 0.23565f
+C485 ub2 gnd 0.4132f
+C486 op5 gnd 0.1031f
+C487 kc6 uc6 0.12587f
+C488 c6i clkb 0.05624f
+C489 g2 f 0.59793f
+C490 lb2 b2 0.12647f
+C491 a5b kp53 0.01375f
+C492 ks4 clk 0.0017f
+C493 ls4 clkb 0.05829f
+C494 s4m f 0.43308f
+C495 a5 b5 0.25758f
+C496 b4b a4 0.14699f
+C497 kc41 g2 0.02231f
+C498 a2i f 0.00918f
+C499 kb2 clkb 0.02822f
+C500 ka2 gnd 0.16076f
+C501 c5b gnd 0.38701f
+C502 g3b a3 0.0114f
+C503 p5 f 0.14004f
+C504 lb2 ub2 0.61857f
+C505 g2b a2 0.0114f
+C506 ub4 clk 0.02822f
+C507 kc63 kc64 2.1753f
+C508 kg4 gnd 0.41238f
+C509 lb4 f 0.2421f
+C510 p1o gnd 0.73244f
+C511 kp14 gnd 0.2985f
+C512 g1b f 1.34165f
+C513 ks33 p3b 0.01375f
+C514 g5 f 0.43463f
+C515 p2 gnd 0.09565f
+C516 g4b gnd 0.05572f
+C517 ua4 clkb 0.00355f
+C518 g5b a5 0.0114f
+C519 ks23 p2b 0.01375f
+C520 a4i clk 0.12702f
+C521 kc55 g1 0
+C522 ka4 f 0.24211f
+C523 p1i clk 0.12702f
+C524 kp1 clkb 0.02822f
+C525 op1 f 0.21547f
+C526 us2 f 1.3353f
+C527 a2b p2 0.04196f
+C528 kc66 g3 0.05765f
+C529 ls5 clkb 0.05829f
+C530 ks5 clk 0.0017f
+C531 s5m f 0.43308f
+C532 b3b f 0.48578f
+C533 kc31 c3b 1.64952f
+C534 a4 p4 0.04196f
+C535 kb5 ub5 0.12193f
+C536 ks2 clk 0.0017f
+C537 lb4 ub4 0.61857f
+C538 ls2 clkb 0.05829f
+C539 ks22 f 0.82476f
+C540 a5b f 0.48966f
+C541 kc65 p5 0
+C542 b3i clkb 0.05624f
+C543 lb3 clk 0.05624f
+C544 kg3 gnd 0.41238f
+C545 kc52 c5b 0.82476f
+C546 la1 gnd 0.34923f
+C547 ua1 f 0.68486f
+C548 lp1 p1o 0.11756f
+C549 s5 ks54 0.23565f
+C550 kp51 f 0.82476f
+C551 p2 kc67 0.00105f
+C552 p4 c5b 0.02232f
+C553 op3 f 0.21547f
+C554 kc52 p2 0.06946f
+C555 us3 gnd 0.63729f
+C556 ka3 clk 0.0017f
+C557 la3 clkb 0.05829f
+C558 ka4 a4i 0.61857f
+C559 s3 s3m 0.06056f
+C560 b5 p5 0.00194f
+C561 a5i f 0.00918f
+C562 ka5 gnd 0.16076f
+C563 p4b c4 0.14699f
+C564 kp34 p3 0.23565f
+C565 ks3 f 0.24435f
+C566 s3m gnd 0.23441f
+C567 c6b p5 0.02429f
+C568 us4 gnd 0.63729f
+C569 c4b f 0.12807f
+C570 kb1 b1i 0.61857f
+C571 c3b g2 0.05668f
+C572 kp31 p3 0.82476f
+C573 ks2 us2 0.12587f
+C574 a2 gnd 0.44794f
+C575 b3b a3 0.14699f
+C576 lc6 gnd 0.39665f
+C577 clkb f 0.42661f
+C578 kc41 c4b 0.61857f
+C579 b4 f 0.88112f
+C580 a4b gnd 0.20683f
+C581 b2b b2 0.20755f
+C582 kc63 p3 0.05716f
+C583 a2b a2 0.06056f
+C584 s4 ks43 0.23565f
+C585 ls4 s4o 0.11756f
+C586 kp21 f 0.82476f
+C587 g3 f 0.56887f
+C588 s5o gnd 0.7322f
+C589 s4i clk 0.12702f
+C590 ks4 clkb 0.02822f
+C591 kc54 g3 0
+C592 s4 f 0.02958f
+C593 g5b g5 0.05991f
+C594 a5b b5 0.14699f
+C595 b4b a4b 0.08656f
+C596 g2b gnd 0.05572f
+C597 ua2 clk 0.02822f
+C598 kc41 g3 0.0262f
+C599 la2 f 0.2421f
+C600 ks34 p3 0.01375f
+C601 kc68 gnd 1.03095f
+C602 p5b f 0.48966f
+C603 b4i clk 0.12702f
+C604 kb2 ub2 0.12193f
+C605 kb4 f 0.24211f
+C606 ub4 clkb 0.00355f
+C607 up1 gnd 0.53722f
+C608 s4m s4i 0.06056f
+C609 kp13 gnd 0.43596f
+C610 s3 p3 0.04196f
+C611 c3 p3b 0.14699f
+C612 p3 gnd 0.05247f
+C613 g1 f 0.63595f
+C614 kp34 gnd 0.2985f
+C615 kc55 p2 0.00274f
+C616 a4i clkb 0.05624f
+C617 la4 clk 0.05624f
+C618 g1b p2b 0.08656f
+C619 kc51 f 1.73228f
+C620 p1i clkb 0.05624f
+C621 b2b p2 0.00194f
+C622 lb1 gnd 0.34923f
+C623 ub1 f 0.68486f
+C624 s5i clk 0.12702f
+C625 ks5 clkb 0.02822f
+C626 p5b ks53 0.01375f
+C627 g4 g2 0.00647f
+C628 kc65 g3 0.03093f
+C629 p5 c5 0.08656f
+C630 s5 f 0.02958f
+C631 a4b p4 0.04196f
+C632 p3b f 0.48966f
+C633 kb5 b5i 0.61857f
+C634 s2m gnd 0.23441f
+C635 ks2 clkb 0.02822f
+C636 kb4 ub4 0.12193f
+C637 s2 f 0.02958f
+C638 s2i clk 0.12702f
+C639 kc67 kc68 1.03095f
+C640 b5b f 0.48578f
+C641 lb3 clkb 0.05829f
+C642 ua3 gnd 0.4132f
+C643 kb3 clk 0.0017f
+C644 a1i f 0.00918f
+C645 kc52 kc53 2.05159f
+C646 ka1 gnd 0.16076f
+C647 lp1 up1 0.61857f
+C648 s3 ks34 0.23565f
+C649 s5 ks53 0.23565f
+C650 p3 kc67 0
+C651 lb5 gnd 0.34923f
+C652 g5 g4 0.09412f
+C653 ub5 f 0.68486f
+C654 a1 kp14 0.01375f
+C655 ka3 clkb 0.02822f
+C656 s3o f 1.34998f
+C657 kc52 p3 0.03299f
+C658 ks34 gnd 0.2985f
+C659 kc31 g2 0.04196f
+C660 p4 p3 0.13566f
+C661 op4 gnd 0.1031f
+C662 a5 p5 0.04196f
+C663 ua5 clk 0.02822f
+C664 la5 f 0.2421f
+C665 s2 ks24 0.23565f
+C666 c4b c4 0.20755f
+C667 lb1 b1 0.12647f
+C668 s3 gnd 0.05199f
+C669 kp33 p3 0.23565f
+C670 ls3 clk 0.05624f
+C671 s3i f 0.42053f
+C672 kc42 c4b 2.47428f
+C673 kc56 gnd 0.82476f
+C674 s5m s5i 0.06056f
+C675 kp52 p5 0.82476f
+C676 s4o f 1.34998f
+C677 b2 f 0.88112f
+C678 a2b gnd 0.20683f
+C679 p1 kp14 0.23565f
+C680 b3b a3b 0.08656f
+C681 uc6 f 1.3353f
+C682 kc6 gnd 0.16736f
+C683 b2b a2 0.14699f
+C684 b4b gnd 0.23505f
+C685 c6b g1 0.06581f
+C686 a4 f 0.885f
+C687 s4 c4 0.00194f
+C688 ls4 us4 0.61857f
+C689 lb2 gnd 0.34923f
+C690 la1 a1 0.12647f
+C691 ub2 f 0.68486f
+C692 us5 gnd 0.63729f
+C693 op5 f 0.21547f
+C694 b5b b5 0.20755f
+C695 s4i clkb 0.05624f
+C696 kc32 c3b 0.41238f
+C697 ks42 f 0.82476f
+C698 a5b a5 0.06056f
+C699 a2i clk 0.12702f
+C700 c3b g1 0.06978f
+C701 op2 gnd 0.1031f
+C702 ua2 clkb 0.00355f
+C703 ka2 f 0.24211f
+C704 c5b f 0.49122f
+C705 kc67 gnd 0.51547f
+C706 kb2 b2i 0.61857f
+C707 kc62 kc63 2.29902f
+C708 b4i clkb 0.05624f
+C709 lb4 clk 0.05624f
+C710 kc54 c5b 0.82476f
+C711 lp1 gnd 0.3451f
+C712 p1o f 1.34998f
+C713 kc42 g1 0.05741f
+C714 b1 gnd 0.44939f
+C715 p4 gnd 0.05247f
+C716 p2 f 0.24075f
+C717 c3b p3b 0.08656f
+C718 la2 ua2 0.61857f
+C719 ka4 clk 0.0017f
+C720 kp33 gnd 0.43596f
+C721 kc55 p3 0.00242f
+C722 la4 clkb 0.05829f
+C723 g4b f 0.85587f
+C724 p2b g1 0.14699f
+C725 kb1 gnd 0.16076f
+C726 us2 clk 0.02822f
+C727 b1i f 0.00918f
+C728 ks52 f 0.82476f
+C729 p5b c5 0.14699f
+C730 kp54 gnd 0.2985f
+C731 s5i clkb 0.05624f
+C732 g4 g3 0.22222f
+C733 b4b p4 0.00194f
+C734 ub3 gnd 0.4132f
+C735 kp32 f 0.82476f
+C736 kb4 b4i 0.61857f
+C737 s2i clkb 0.05624f
+C738 ks21 f 0.82476f
+C739 ls5 s5o 0.11756f
+C740 kc64 f 0.04865f
+C741 kb3 clkb 0.02822f
+C742 s2 p2b 0.04196f
+C743 kp42 p4 0.82476f
+C744 kg1 gnd 0.41238f
+C745 ua1 clk 0.02822f
+C746 la1 f 0.2421f
+C747 ks24 p2 0.01375f
+C748 kp1 up1 0.12708f
+C749 s3 ks33 0.23565f
+C750 p3 kc66 0
+C751 kb5 gnd 0.16076f
+C752 s5 c5 0.00194f
+C753 b5i f 0.00918f
+C754 ks33 gnd 0.43596f
+C755 kc51 g4 0.00266f
+C756 us3 f 1.3353f
+C757 ks44 gnd 0.2985f
+C758 ks32 s3 0.82476f
+C759 a5i clk 0.12702f
+C760 a5b p5 0.04196f
+C761 ka5 f 0.24211f
+C762 ua5 clkb 0.00355f
+C763 c4b p4b 0.08656f
+C764 ls3 clkb 0.05829f
+C765 s2 ks23 0.23565f
+C766 ks3 clk 0.0017f
+C767 b3 p3 0.00194f
+C768 g3b g3 0.05991f
+C769 s3m f 0.43308f
+C770 op6 gnd 0.1031f
+C771 us4 f 1.3353f
+C772 kp51 p5 0.82476f
+C773 kc55 gnd 0.44539f
+C774 kc55 kc56 0.82476f
+C775 p1 kp13 0.23565f
+C776 b2b gnd 0.23505f
+C777 a2 f 0.885f
+C778 kc31 g1 0.05668f
+C779 lc6 f 0.24499f
+C780 c6i gnd 0.20619f
+C781 b2b a2b 0.08656f
+C782 ls4 gnd 0.39665f
+C783 a4b f 0.48966f
+C784 kc62 p4 0.05668f
+C785 c6b p2 0.07535f
+C786 a4 kp44 0.01375f
+C787 b2i f 0.00918f
+C788 s4 p4b 0.04196f
+C789 ks4 us4 0.12587f
+C790 kb2 gnd 0.16076f
+C791 ks54 gnd 0.2985f
+C792 c6i kc6 0.61857f
+C793 s5o f 1.34998f
+C794 b5b a5 0.14699f
+C795 ks41 f 0.82476f
+C796 gnd 0 12.73248f
+C797 op6 0 0.11991f
+C798 f 0 0.33037p
+C799 c6o 0 0.47612f
+C800 clk 0 4.13066f
+C801 clkb 0 4.43027f
+C802 uc6 0 1.28428f
+C803 lc6 0 1.19565f
+C804 kc6 0 2.34235f
+C805 c6i 0 0.51613f
+C806 c6m 0 0.39907f
+C807 c6 0 0.36789f
+C808 g2 0 0.90423f
+C809 g3 0 0.73645f
+C810 op5 0 0.11991f
+C811 s5o 0 0.47612f
+C812 us5 0 1.28428f
+C813 ks54 0 0.00523f
+C814 ks53 0 0.0049f
+C815 c5 0 0.29552f
+C816 p5 0 0.85916f
+C817 p5b 0 0.34063f
+C818 c5b 0 2.16498f
+C819 kc68 0 0.01124f
+C820 kc67 0 0.12113f
+C821 kc66 0 0.10235f
+C822 kc65 0 0.14982f
+C823 g4 0 0.54225f
+C824 g5 0 0.32972f
+C825 g1 0 1.2488f
+C826 p2 0 1.38649f
+C827 p3 0 1.20467f
+C828 p4 0 1.0529f
+C829 ls5 0 1.19565f
+C830 ks5 0 2.34235f
+C831 s5i 0 0.51613f
+C832 s5m 0 0.39907f
+C833 s5 0 0.36505f
+C834 ks52 0 0.01059f
+C835 ks51 0 0.01059f
+C836 kp54 0 0.00523f
+C837 kp53 0 0.0049f
+C838 b5 0 1.99152f
+C839 a5 0 2.03662f
+C840 a5b 0 0.34063f
+C841 b5b 0 0.303f
+C842 kc64 0 0.06981f
+C843 kc63 0 0.15507f
+C844 kc62 0 0.10234f
+C845 kc61 0 0.13655f
+C846 c6b 0 1.62926f
+C847 kp52 0 0.01059f
+C848 kp51 0 0.01059f
+C849 ub5 0 1.30204f
+C850 b5i 0 0.28975f
+C851 lb5 0 1.04251f
+C852 kb5 0 2.3327f
+C853 kg5 0 0.00538f
+C854 g5b 0 0.36088f
+C855 ua5 0 1.30204f
+C856 a5i 0 0.28975f
+C857 la5 0 1.04251f
+C858 ka5 0 2.3327f
+C859 op4 0 0.11991f
+C860 ks44 0 0.00523f
+C861 ks43 0 0.0049f
+C862 c4 0 0.29552f
+C863 p4b 0 0.34063f
+C864 c4b 0 2.1758f
+C865 s4o 0 0.47612f
+C866 us4 0 1.28428f
+C867 kc56 0 0.01059f
+C868 kc55 0 0.2391f
+C869 kc54 0 0.20175f
+C870 kp44 0 0.00523f
+C871 kp43 0 0.0049f
+C872 b4 0 1.99152f
+C873 a4 0 2.03662f
+C874 a4b 0 0.34063f
+C875 b4b 0 0.303f
+C876 ls4 0 1.19565f
+C877 ks4 0 2.34235f
+C878 s4i 0 0.51613f
+C879 s4m 0 0.39907f
+C880 s4 0 0.36505f
+C881 ks42 0 0.01059f
+C882 ks41 0 0.01059f
+C883 kp42 0 0.01059f
+C884 kp41 0 0.01059f
+C885 ub4 0 1.30204f
+C886 b4i 0 0.28975f
+C887 lb4 0 1.04251f
+C888 kb4 0 2.3327f
+C889 kg4 0 0.00538f
+C890 kc53 0 0.21094f
+C891 kc52 0 0.16343f
+C892 ua4 0 1.30204f
+C893 a4i 0 0.28975f
+C894 la4 0 1.04251f
+C895 ka4 0 2.3327f
+C896 kc51 0 0.13982f
+C897 g4b 0 0.36088f
+C898 kp34 0 0.00523f
+C899 kp33 0 0.0049f
+C900 b3 0 1.99152f
+C901 a3 0 2.03662f
+C902 a3b 0 0.34063f
+C903 b3b 0 0.303f
+C904 p3b 0 0.34063f
+C905 kp32 0 0.01059f
+C906 kp31 0 0.01059f
+C907 ub3 0 1.30204f
+C908 b3i 0 0.28975f
+C909 lb3 0 1.04251f
+C910 kb3 0 2.3327f
+C911 kc44 0 0.00995f
+C912 kc43 0 0.28781f
+C913 kg3 0 0.00538f
+C914 ua3 0 1.30204f
+C915 a3i 0 0.28975f
+C916 la3 0 1.04251f
+C917 ka3 0 2.3327f
+C918 g3b 0 0.36088f
+C919 op3 0 0.11991f
+C920 s3o 0 0.47612f
+C921 us3 0 1.28428f
+C922 ks34 0 0.00523f
+C923 ks33 0 0.0049f
+C924 c3 0 0.29552f
+C925 c3b 0 1.04291f
+C926 ls3 0 1.19565f
+C927 ks3 0 2.34235f
+C928 s3i 0 0.51613f
+C929 s3m 0 0.39907f
+C930 s3 0 0.36505f
+C931 ks32 0 0.01059f
+C932 ks31 0 0.01059f
+C933 kc42 0 0.18053f
+C934 kp24 0 0.00523f
+C935 kp23 0 0.0049f
+C936 b2 0 1.99152f
+C937 a2 0 2.03662f
+C938 a2b 0 0.34063f
+C939 b2b 0 0.303f
+C940 kc41 0 0.4105f
+C941 p2b 0 0.34063f
+C942 kp22 0 0.01059f
+C943 kp21 0 0.01059f
+C944 ub2 0 1.30204f
+C945 b2i 0 0.28975f
+C946 lb2 0 1.04251f
+C947 kb2 0 2.3327f
+C948 kg2 0 0.00538f
+C949 ua2 0 1.30204f
+C950 a2i 0 0.28975f
+C951 la2 0 1.04251f
+C952 ka2 0 2.3327f
+C953 g2b 0 0.36088f
+C954 op2 0 0.11991f
+C955 s2o 0 0.47612f
+C956 ks24 0 0.00523f
+C957 ks23 0 0.0049f
+C958 g1b 0 0.66389f
+C959 kc32 0 0.00931f
+C960 kp14 0 0.00523f
+C961 kp13 0 0.0049f
+C962 b1 0 1.99152f
+C963 a1 0 2.03662f
+C964 a1b 0 0.34063f
+C965 b1b 0 0.303f
+C966 us2 0 1.28428f
+C967 ub1 0 1.30204f
+C968 b1i 0 0.28975f
+C969 lb1 0 1.04251f
+C970 kb1 0 2.3327f
+C971 ls2 0 1.19565f
+C972 ks2 0 2.34235f
+C973 s2i 0 0.51613f
+C974 ks22 0 0.01059f
+C975 s2 0 0.36505f
+C976 ks21 0 0.01059f
+C977 s2m 0 0.39907f
+C978 kp12 0 0.01059f
+C979 p1 0 0.36505f
+C980 kp11 0 0.01059f
+C981 kc31 0 0.31744f
+C982 ua1 0 1.30204f
+C983 a1i 0 0.28975f
+C984 la1 0 1.04251f
+C985 ka1 0 2.3327f
+C986 kg1 0 0.00538f
+C987 p1o 0 0.47405f
+C988 up1 0 1.31336f
+C989 lp1 0 1.18037f
+C990 kp1 0 2.34363f
+C991 p1i 0 0.51613f
+C992 p1m 0 0.39907f
+C993 op1 0 0.11991f
+
+
+
+.param VIM={0.5*VDD}
+.meas tran t_a_rise  WHEN v(b1)=VIM  RISE=1
+.meas tran t_c_rise  WHEN v(c6)=VIM  RISE=1
+.meas tran t_ac_rise PARAM='t_c_rise - t_a_rise'
+
+.meas tran t_a_fall  WHEN v(b1)=VIM  FALL=1
+.meas tran t_c_fall  WHEN v(c6)=VIM  FALL=1
+.meas tran t_ac_fall PARAM='t_c_fall - t_a_fall'  
+
+.meas tran t_ac_worst PARAM='max(abs(t_ac_rise), abs(t_ac_fall))'
+
+.ic v(c6) = 0V
+.ic v(g1) = 1.8V
+.ic v(p1) = 0V
+.tran 10p 200ns
+
+.control
+run
+set color0 = black
+set color1 = white
+set hcopypscolor = 1
+set xbrushwidth = 4
+
+plot v(c6)+10 v(p1)+8 v(s2)+6 v(s3)+4 v(s4)+2 v(s5) v(b1)-2 title "Arun_Venkat_2024102067_ADDER"
+set curplottitle = "Arun_Venkat_2024102067_ADDER"
+hardcopy Arun_Venkat_2024102067_Q3_Transient.eps v(p1) v(p2) v(p3) v(p4) v(p5)
+.endc
